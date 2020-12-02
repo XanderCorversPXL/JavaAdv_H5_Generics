@@ -1,30 +1,28 @@
 package be.pxl.ja.oefening1;
 
-public class WorkingPlace<T> {
+public class WorkingPlace<T extends Vehicle & Motorized> {
 
-	private T thingToFix;
-	private int numberOfThingsFixed = 0;
+    private T thingToFix;
+    private int numberOfThingsFixed = 0;
 
-	public boolean isEmpty() {
-		return thingToFix == null;
-	}
+    public boolean isEmpty() {
+        return thingToFix == null;
+    }
 
-	public void startFixing(T vehicle) {
-		if (!isEmpty()) {
-			System.out.println("Already busy.");
-		} else {
-			this.thingToFix = vehicle;
-		}
-	}
+    public void startFixing(T vehicle) {
+        if (!isEmpty()) {
+            System.out.println("Already busy.");
+        } else {
+            this.thingToFix = vehicle;
+        }
+    }
 
-	public void finished() {
-		thingToFix = null;
-		numberOfThingsFixed++;
-	}
+    public void finished() {
+        thingToFix = null;
+        numberOfThingsFixed++;
+    }
 
-	public int getNumberOfThingsFixed() {
-		return numberOfThingsFixed;
-	}
-
-
+    public int getNumberOfThingsFixed() {
+        return numberOfThingsFixed;
+    }
 }
